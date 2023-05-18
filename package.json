@@ -1,7 +1,7 @@
 {
-  "name": "react-minimo",
+  "name": "poke-trunfo",
   "version": "1.0.0",
-  "description": "Projeto criado para demonstrar o mínimo necessário para se começar uma aplicação React.",
+  "description": "Um pequeno jogo web que mistura as mecânicas do clássico jogo de cartas Trunfo com os personagens do Pokémon",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --mode development",
@@ -17,8 +17,12 @@
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/preset-react": "^7.17.12",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
     "babel-loader": "^8.2.5",
     "html-webpack-plugin": "^5.5.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.4",
     "webpack": "^5.83.1",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.2"
