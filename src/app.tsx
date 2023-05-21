@@ -1,10 +1,13 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import GenericComponent from "./GenericComponent";
+import DevScreen from "./DevScreen";
 import MainProvider from "./Contexts/MainContext/MainProvider";
+import GameProvider from "./Contexts/GameContext/GameProvider";
 
 createRoot(document.getElementById("root") as HTMLElement).render(
-    <MainProvider
-        children={<GenericComponent />}
-    />
-)
+  <MainProvider>
+    <GameProvider>
+      <DevScreen />
+    </GameProvider>
+  </MainProvider>
+);
