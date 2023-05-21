@@ -14,7 +14,7 @@ export const CardBody = styled.div`
     rgb(79, 112, 242),
     rgb(79, 112, 242)
   );
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 `;
 
 export const CardThumbContainer = styled.div`
@@ -33,7 +33,7 @@ export const CardThumb = styled.img`
 export const DataContainer = styled.div`
   background-color: white;
   border-radius: 10px;
-  padding: 10px 15px;
+  padding: 5px 0;
   border: 2px solid #b4b4b4;
 `;
 
@@ -47,6 +47,31 @@ export const DataTitle = styled.h3`
 export const PokemonNumber = styled.span`
   font-size: 2.2rem;
   font-weight: bold;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: rgb(249, 221, 11);
+`;
+
+export const StatsName = styled.span`
+  font-size: 1.2rem;
+  font-weight: bold;
+`;
+
+export const StatsValue = styled.span`
+  font-size: 1.3rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+`;
+
+export const StatsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 5px;
+  margin: 4px;
+  background-color: rgb(218, 218, 218);
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(200, 200, 200);
+  }
 `;

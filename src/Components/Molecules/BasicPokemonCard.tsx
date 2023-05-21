@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IPokemonData } from "../../Contexts/MainContext/types";
 import {
   CardBody,
@@ -7,14 +7,20 @@ import {
   DataContainer,
   DataTitle,
   PokemonNumber,
+  StatsContainer,
+  StatsName,
+  StatsValue,
 } from "./Styles";
 import { capitalizeFirstLetter } from "../../Utils/StringUtils";
+import GameContext from "../../Contexts/GameContext/GameContext";
 
 export interface IBasicPokemonCardProps {
   data: IPokemonData;
 }
 
 function BasicPokemonCard({ data }: IBasicPokemonCardProps) {
+  const {Battle} = useContext(GameContext);
+
   return (
     <CardBody>
       <PokemonNumber>#{data.order.toString().padStart(3, "0")}</PokemonNumber>
@@ -26,13 +32,14 @@ function BasicPokemonCard({ data }: IBasicPokemonCardProps) {
 
       <DataTitle>Stats:</DataTitle>
       <DataContainer>
-        <ul>
           {data.stats.map((stat, index) => (
-            <li key={index}>
-              {stat.name}: {stat.value}
-            </li>
+            <StatsContainer key={index} onClick={() => Battle(stat, true)}>
+              <StatsName>{capitalizeFirstLetter(stat.name)}</StatsName>
+              <StatsValue>
+                {stat.value}
+              </StatsValue>
+            </StatsContainer>
           ))}
-        </ul>
       </DataContainer>
     </CardBody>
   );
