@@ -36,3 +36,14 @@ export function createDecks(
 
   return [deck1, deck2];
 }
+
+export function updateDecksAfterBattle(winnerDeck: IPokemonData[], loserDeck: IPokemonData[]) {
+  const winnerCard = winnerDeck.shift();
+  const loserCard = loserDeck.shift();
+
+  if (winnerCard && loserCard) {
+    winnerDeck.push(winnerCard, loserCard);
+  }
+
+  return {winnerDeck, loserDeck};
+}
