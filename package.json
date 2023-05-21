@@ -11,9 +11,11 @@
   "author": "Henrry Esposito",
   "license": "GNU",
   "dependencies": {
+    "@types/styled-components": "^5.1.26",
     "axios": "^1.4.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.0.0-rc.1"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
