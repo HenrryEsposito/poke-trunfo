@@ -3,21 +3,28 @@ export interface IMainContextData {
   pokemonDataList: IPokemonData[];
 }
 
+export enum PokemonStats {
+  HEIGHT = "height",
+  WEIGHT = "weight",
+  HP = "hp",
+  ATTACK = "attack",
+  DEFENSE = "defense",
+  SPECIALATTACK = "special-attack",
+  SPECIALDEFENSE = "special-defense",
+  SPEED = "speed",
+}
+
+export interface IPokemonStatsData {
+  name: PokemonStats;
+  value: number;
+}
+
 export interface IPokemonData {
   id: number;
   order: number;
   name: string;
-  height: number;
-  weight: number;
   sprites: {
     front_default?: string;
   };
-  stats: [
-    {
-      base_stat: 45;
-      stat: {
-        name: "hp";
-      };
-    }
-  ];
+  stats: IPokemonStatsData[];
 }

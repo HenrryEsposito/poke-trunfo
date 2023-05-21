@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IPokemonData } from "../Contexts/MainContext/types";
+import { IPokemonData, PokemonStats } from "../Contexts/MainContext/types";
 
 export const pokeApiBaseURL: string = "https://pokeapi.co/api/v2";
 
@@ -28,17 +28,23 @@ function mapPokemonData(rawData: any): IPokemonData {
     id: rawData.id,
     order: rawData.order,
     name: rawData.name,
-    height: rawData.height,
-    weight: rawData.weight,
     sprites: {
       front_default: rawData.sprites.front_default || '',
     },
-    stats: rawData.stats.map((stat: any) => ({
-      base_stat: stat.base_stat,
-      stat: {
-        name: stat.stat.name,
+    stats: [
+      ...rawData.stats.map((stat: any) => ({
+      name: stat.stat.name,
+      value: stat.base_stat,
+      })),
+      {
+        name: PokemonStats.HEIGHT,
+        value: rawData.height
       },
-    })),
+      {
+        name: PokemonStats.WEIGHT,
+        value: rawData.weight
+      },
+    ],
   };
 }
 
