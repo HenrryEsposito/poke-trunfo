@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import MainContext from "./Contexts/MainContext/MainContext";
 import GameContext from "./Contexts/GameContext/GameContext";
 import BasicPokemonCard from "./Components/Molecules/BasicPokemonCard";
@@ -36,26 +36,30 @@ function DevScreen() {
       {!!playerDeck.length && (
         <>
           <h4>Game Decks:</h4>
-          {''}
-          <h2>Player Deck:</h2>
-          {
-            playerDeck.map((pokemonData) => (
-              <BasicPokemonCard
-                key={pokemonData.id}
-                data={pokemonData}
-              />
-            ))
-          }
-          {''}
-          <h2>Bot Deck:</h2>
-          {
-            botDeck.map((pokemonData) => (
-              <BasicPokemonCard
-                key={pokemonData.id}
-                data={pokemonData}
-              />
-            ))
-          }
+          <div style={{display: 'flex'}}>
+            <h2>Player Deck:</h2>
+            <div>
+              {
+                playerDeck.map((pokemonData) => (
+                  <BasicPokemonCard
+                    key={pokemonData.id}
+                    data={pokemonData}
+                  />
+                ))
+              }
+            </div>
+            <h2>Bot Deck:</h2>
+            <div>
+              {
+                botDeck.map((pokemonData) => (
+                  <BasicPokemonCard
+                    key={pokemonData.id}
+                    data={pokemonData}
+                  />
+                ))
+              }
+            </div>
+          </div>
         </>
       )}
     </>
