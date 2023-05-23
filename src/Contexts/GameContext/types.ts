@@ -6,6 +6,7 @@ export interface IGameContextData {
   botDeck: IPokemonData[];
   buildDecks: () => void;
   Battle: (attackerStats: IPokemonStatsData, attackerIsPlayer: boolean) => void;
+  playerBlocked: boolean;
 }
 
 export enum GameState {

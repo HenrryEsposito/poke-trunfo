@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect } from "react";
 import MainContext from "./Contexts/MainContext/MainContext";
 import GameContext from "./Contexts/GameContext/GameContext";
-import BasicPokemonCard from "./Components/Molecules/BasicPokemonCard";
+import BasicPokemonCard from "./Components/Molecules/BasicPokemonCard/BasicPokemonCard";
+import BasicDeck from "./Components/Molecules/BasicDeck/Deck";
+import ToastContainer from "./Components/Molecules/ToastContainer/ToastContainer";
 
 function DevScreen() {
   const { fetchPokemonData, pokemonDataList } = React.useContext(MainContext);
@@ -15,50 +17,45 @@ function DevScreen() {
 
   return (
     <>
+      <ToastContainer />
       <button onClick={fetchPokemonData}>Carregar Dados</button>
       <button onClick={LogData}>Logar Dados</button>
       <button onClick={buildDecks}>Build Decks</button>
-      {/* {pokemonDataList.length === 0 && <p>Vazio...</p>}
-      {pokemonDataList.length > 0 && (
-        <div>
-          {pokemonDataList.map((pokemonData) => (
-            <div key={pokemonData.id}>
-              <p key={pokemonData.id}>{pokemonData.name}</p>
-              <img
-                src={pokemonData.sprites.front_default || ""}
-                alt={pokemonData.name}
-              />
-            </div>
-          ))}
-        </div>
-      )} */}
 
       {!!playerDeck.length && (
         <>
           <h4>Game Decks:</h4>
-          <div style={{display: 'flex'}}>
-            <h2>Player Deck:</h2>
+          <div style={{display: 'flex', justifyContent: 'space-around'}}>
             <div>
-              {
-                playerDeck.map((pokemonData) => (
-                  <BasicPokemonCard
-                    key={pokemonData.id}
-                    data={pokemonData}
-                  />
-                ))
-              }
+              <h2>Player Deck:</h2>
+
+              <BasicDeck>
+                {
+                  playerDeck.map((pokemonData) => (
+                    <BasicPokemonCard
+                      key={pokemonData.id}
+                      data={pokemonData}
+                    />
+                  ))
+                }
+              </BasicDeck>
             </div>
-            <h2>Bot Deck:</h2>
+
             <div>
-              {
-                botDeck.map((pokemonData) => (
-                  <BasicPokemonCard
-                    key={pokemonData.id}
-                    data={pokemonData}
-                  />
-                ))
-              }
+              <h2>Bot Deck:</h2>
+              
+              <BasicDeck>
+                {
+                  botDeck.map((pokemonData) => (
+                    <BasicPokemonCard
+                      key={pokemonData.id}
+                      data={pokemonData}
+                    />
+                  ))
+                }
+              </BasicDeck>
             </div>
+              
           </div>
         </>
       )}
