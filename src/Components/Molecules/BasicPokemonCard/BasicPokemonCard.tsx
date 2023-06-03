@@ -13,6 +13,8 @@ import {
 } from "./Styles";
 import { capitalizeFirstLetter } from "../../../Utils/StringUtils";
 import GameContext from "../../../Contexts/GameContext/GameContext";
+import { motion } from "framer-motion";
+import MotionContext from "../../../Contexts/MotionContext/MotionContext";
 
 export interface IBasicPokemonCardProps {
   data: IPokemonData;
@@ -21,6 +23,7 @@ export interface IBasicPokemonCardProps {
 
 function BasicPokemonCard({ data, style }: IBasicPokemonCardProps) {
   const { Battle, playerBlocked } = useContext(GameContext);
+  const { controls } = useContext(MotionContext);
 
   return (
     <CardBody style={style}>
@@ -31,13 +34,16 @@ function BasicPokemonCard({ data, style }: IBasicPokemonCardProps) {
         <CardThumb src={data.sprites.front_default} alt={data.name} />
       </CardThumbContainer>
 
-      <DataTitle>Stats:</DataTitle>
+      <motion.div animate={controls}>
+        <DataTitle>Stats:</DataTitle>
+      </motion.div>
+
       <DataContainer>
         {data.stats.map((stat, index) => (
           <StatsContainer
             key={index}
             onClick={() => (!playerBlocked ? Battle(stat, true) : null)}
-            playerBlocked={playerBlocked}
+            playerblocked={playerBlocked}
           >
             <StatsName>{capitalizeFirstLetter(stat.name)}</StatsName>
             <StatsValue>{stat.value}</StatsValue>

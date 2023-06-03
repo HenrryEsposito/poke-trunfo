@@ -20,6 +20,17 @@ module.exports = {
         exclude: /node_modules/,
         use: 'ts-loader',
       },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-react-loader',
+            options: {
+              esModule: false,
+            },
+          },
+        ]
+      },
     ],
   },
   resolve: {

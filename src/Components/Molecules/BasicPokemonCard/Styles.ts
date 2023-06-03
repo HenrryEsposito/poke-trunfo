@@ -62,7 +62,7 @@ export const StatsValue = styled.span`
 `;
 
 interface IStatsContainerProps {
-  playerBlocked : boolean;
+  playerblocked : boolean;
 }
 
 export const StatsContainer = styled.div<IStatsContainerProps>`
@@ -73,7 +73,7 @@ export const StatsContainer = styled.div<IStatsContainerProps>`
   margin: 4px;
   background-color: rgb(218, 218, 218);
   border-radius: 10px;
-  cursor: ${(props: IStatsContainerProps) => props.playerBlocked ? "auto" : "pointer"};
+  cursor: ${(props: IStatsContainerProps) => props.playerblocked ? "auto" : "pointer"};
 
   &:hover {
     background-color: rgb(200, 200, 200);

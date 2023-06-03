@@ -4,10 +4,14 @@ import GameContext from "./Contexts/GameContext/GameContext";
 import BasicPokemonCard from "./Components/Molecules/BasicPokemonCard/BasicPokemonCard";
 import BasicDeck from "./Components/Molecules/BasicDeck/Deck";
 import ToastContainer from "./Components/Molecules/ToastContainer/ToastContainer";
+import MotionContext from "./Contexts/MotionContext/MotionContext";
+
+import MySvg from './Assets/Svg/Vector4.svg';
 
 function DevScreen() {
   const { fetchPokemonData, pokemonDataList } = React.useContext(MainContext);
   const { buildDecks, playerDeck, botDeck } = React.useContext(GameContext);
+  const { startAnimation } = React.useContext(MotionContext);
 
   const LogData = useCallback((): void => {
     console.log('Dados carregados:', pokemonDataList);
@@ -21,6 +25,8 @@ function DevScreen() {
       <button onClick={fetchPokemonData}>Carregar Dados</button>
       <button onClick={LogData}>Logar Dados</button>
       <button onClick={buildDecks}>Build Decks</button>
+      <button onClick={startAnimation}>Animar</button>
+
 
       {!!playerDeck.length && (
         <>
@@ -59,6 +65,8 @@ function DevScreen() {
           </div>
         </>
       )}
+
+      <MySvg />
     </>
   );
 }

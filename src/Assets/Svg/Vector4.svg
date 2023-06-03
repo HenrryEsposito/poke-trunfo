@@ -1,0 +1,16 @@
+<svg width="201" height="224" viewBox="0 0 201 224" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="round">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" /> 
+            <feColorMatrix in="blur" mode="matrix" 
+                values="1 0 0 0 0  
+                        0 1 0 0 0  
+                        0 0 1 0 0  
+                        0 0 0 18 -7" 
+                result="round" /> 
+            <feComposite in="SourceGraphic" in2="round" operator="atop"/> 
+        </filter>
+    </defs>
+    <path d="M200.5 1H1V160.5L64 223.5H200.5V1Z" fill="#D9D9D9" stroke="black" stroke-width="5" filter="url(#round)" />
+</svg>
+
