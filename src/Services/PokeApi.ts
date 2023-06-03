@@ -29,7 +29,7 @@ function mapPokemonData(rawData: any): IPokemonData {
     order: rawData.order,
     name: rawData.name,
     sprites: {
-      front_default: rawData.sprites.front_default || '',
+      front_default: rawData.sprites.other['official-artwork'].front_default || '',
     },
     stats: [
       ...rawData.stats.map((stat: any) => ({
