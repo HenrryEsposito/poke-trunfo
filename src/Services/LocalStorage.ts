@@ -1,12 +1,12 @@
 import { IPokemonData } from "../Contexts/MainContext/types";
 
-export function getItem(key: string, initialValue: any) {
+export function getItem<T>(key: string, initialValue: T) {
   const jsonValue = localStorage.getItem(key);
   if (jsonValue != null) return JSON.parse(jsonValue);
   return initialValue;
 }
 
-export function setItem(key: string, value: any) {
+export function setItem(key: string, value: unknown) {
   localStorage.setItem(key, JSON.stringify(value));
 }
 

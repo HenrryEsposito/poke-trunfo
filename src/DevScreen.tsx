@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import MainContext from "./Contexts/MainContext/MainContext";
 import GameContext from "./Contexts/GameContext/GameContext";
 import BasicPokemonCard from "./Components/Molecules/BasicPokemonCard/BasicPokemonCard";
@@ -6,7 +6,7 @@ import BasicDeck from "./Components/Molecules/BasicDeck/Deck";
 import ToastContainer from "./Components/Molecules/ToastContainer/ToastContainer";
 import MotionContext from "./Contexts/MotionContext/MotionContext";
 
-import MySvg from './Assets/Svg/Vector4.svg';
+import MySvg from "./Assets/Svg/Vector4.svg";
 
 function DevScreen() {
   const { fetchPokemonData, pokemonDataList } = React.useContext(MainContext);
@@ -14,9 +14,9 @@ function DevScreen() {
   const { startAnimation } = React.useContext(MotionContext);
 
   const LogData = useCallback((): void => {
-    console.log('Dados carregados:', pokemonDataList);
-    console.log('Deck Player:', playerDeck);
-    console.log('Deck Bot:', botDeck);
+    console.log("Dados carregados:", pokemonDataList);
+    console.log("Deck Player:", playerDeck);
+    console.log("Deck Bot:", botDeck);
   }, [pokemonDataList, playerDeck, botDeck]);
 
   return (
@@ -31,7 +31,7 @@ function DevScreen() {
       {!!playerDeck.length && (
         <>
           <h4>Game Decks:</h4>
-          <div style={{display: 'flex', justifyContent: 'space-around'}}>
+          <div style={{display: "flex", justifyContent: "space-around"}}>
             <div>
               <h2>Player Deck:</h2>
 

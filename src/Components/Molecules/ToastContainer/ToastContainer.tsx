@@ -5,17 +5,17 @@ import ToastContext from "../../../Contexts/ToastContext/ToastContext";
 import { Container } from "./Styles";
 
 function ToastContainer() {
-    const {toasts} = React.useContext(ToastContext);
+  const {toasts} = React.useContext(ToastContext);
 
-    return (
-        <Container>
-            <AnimatePresence>
-                {toasts.map((toast) => (
-                    <Toast key={toast.id} {...toast} />
-                ))}
-            </AnimatePresence>
-        </Container>
-    );
+  return (
+    <Container>
+      <AnimatePresence>
+        {toasts.map((toast) => (
+          <Toast key={toast.id} {...toast} />
+        ))}
+      </AnimatePresence>
+    </Container>
+  );
 }
 
 export default ToastContainer;

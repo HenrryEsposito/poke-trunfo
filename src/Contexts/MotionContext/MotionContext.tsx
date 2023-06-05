@@ -1,5 +1,5 @@
-import React from 'react';
-import { IMotionContextData } from './types';
+import React from "react";
+import { IMotionContextData } from "./types";
 
 const MotionContext = React.createContext<IMotionContextData>(
     {} as IMotionContextData

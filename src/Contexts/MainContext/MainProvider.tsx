@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState } from "react";
 import MainContext from "./MainContext";
 import { IMainContextData, IPokemonData } from "./types";
 import { getPokemons } from "../../Services/PokeApi";

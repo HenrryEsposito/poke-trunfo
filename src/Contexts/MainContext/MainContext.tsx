@@ -1,5 +1,5 @@
-import React from 'react';
-import { IMainContextData } from './types';
+import React from "react";
+import { IMainContextData } from "./types";
 
 const MainContext = React.createContext<IMainContextData>(
     {} as IMainContextData

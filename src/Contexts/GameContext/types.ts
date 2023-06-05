@@ -1,7 +1,6 @@
 import { IPokemonData, IPokemonStatsData } from "../MainContext/types";
 
 export interface IGameContextData {
-  currentGameState: GameState;
   playerDeck: IPokemonData[];
   botDeck: IPokemonData[];
   buildDecks: () => void;

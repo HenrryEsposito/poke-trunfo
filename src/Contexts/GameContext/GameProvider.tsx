@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import GameContext from "./GameContext";
-import { GameState, IGameContextData } from "./types";
+import { IGameContextData } from "./types";
 import { IPokemonData, IPokemonStatsData } from "../MainContext/types";
 import MainContext from "../MainContext/MainContext";
 import { createDecks, updateDecksAfterBattle } from "./GameMechanics/Deck";
@@ -13,9 +13,6 @@ interface IMainProviderProps {
 }
 
 const MainProvider: React.FC<IMainProviderProps> = ({ children }) => {
-  const [currentGameState, setCurrentGameState] = useState<GameState>(
-    GameState.IDLE
-  );
   const [playerDeck, setPlayerDeck] = useState<IPokemonData[]>([]);
   const [botDeck, setBotDeck] = useState<IPokemonData[]>([]);
   const [playerBlocked, setPlayerBlocked] = useState<boolean>(false);
@@ -50,20 +47,20 @@ const MainProvider: React.FC<IMainProviderProps> = ({ children }) => {
     let draw = false;
     
     switch (compareResult) {
-      case 1:
-        //attacker wins
-        isPlayerWinner = attackerIsPlayer;
-        break;
-      case 0:
-        //draw
-        draw = true;
-        break;
-      case -1:
-        //defender wins
-        isPlayerWinner = !attackerIsPlayer;
-        break;
-      default:
-        break;
+    case 1:
+      //attacker wins
+      isPlayerWinner = attackerIsPlayer;
+      break;
+    case 0:
+      //draw
+      draw = true;
+      break;
+    case -1:
+      //defender wins
+      isPlayerWinner = !attackerIsPlayer;
+      break;
+    default:
+      break;
     }
   
     if (isPlayerWinner !== undefined) {
@@ -75,11 +72,11 @@ const MainProvider: React.FC<IMainProviderProps> = ({ children }) => {
       setBotDeck(isPlayerWinner ? [...loserDeck] : [...winnerDeck]);
 
       if(botDeck.length === 0) {
-        addToast("Você ganhou o JOGO!")
-        resetDecks()
+        addToast("Você ganhou o JOGO!");
+        resetDecks();
       } else if(playerDeck.length === 0) {
-        addToast("Seu oponente te derrotou!")
-        resetDecks()
+        addToast("Seu oponente te derrotou!");
+        resetDecks();
       }
     }
 
@@ -92,20 +89,20 @@ const MainProvider: React.FC<IMainProviderProps> = ({ children }) => {
 
     if(isPlayerWinner === true ) {
       if(attackerIsPlayer === true) {
-        addToast("Você ganhou a batalha!")
+        addToast("Você ganhou a batalha!");
       } else{
-        addToast("Seu oponente perdeu a batalha. Sua vez!")
+        addToast("Seu oponente perdeu a batalha. Sua vez!");
       }
 
     }
     else if(isPlayerWinner === false) {
       if(attackerIsPlayer === true) {
-        addToast("Você perdeu a batalha. Vez do oponente.")
+        addToast("Você perdeu a batalha. Vez do oponente.");
       } else {
-        addToast("Seu oponente ganhou a batalha.")
+        addToast("Seu oponente ganhou a batalha.");
       }
     } else if(draw === true) {
-      addToast("Empate.")
+      addToast("Empate.");
     }
   }
 
@@ -116,7 +113,6 @@ const MainProvider: React.FC<IMainProviderProps> = ({ children }) => {
   }
 
   const providedData: IGameContextData = {
-    currentGameState,
     playerDeck,
     botDeck,
     buildDecks,

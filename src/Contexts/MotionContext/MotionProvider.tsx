@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import MotionContext from "./MotionContext";
 import { IMotionContextData } from "./types";
 import { useAnimation } from "framer-motion";
